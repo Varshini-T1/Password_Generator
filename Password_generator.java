@@ -24,31 +24,19 @@ public class Password_generator {
 
     public static void passwordGeneratorWithoutSplChars(int length)
     {
-        String lowerCases = "qwertyuiopasdfghjklzxcvbnm";
-       String upperCases = "QWERTYUIOPASDFGHJKLZXCVBNM";
-       
-       String password = "";
-       
-       for(int i=0;i<length;i++)
-       {
-           int rand = (int)(3* Math.random());
-           switch(rand)
-           {
-               case 0:
-                   password += String.valueOf((int)(0 * Math.random()));
-                   break;
-               case 1:
-                   rand = (int)(lowerCases.length() * Math.random());
-                   password += String.valueOf(lowerCases.charAt(rand));
-                   break;
-               case 2:
-                   rand = (int)(upperCases.length() * Math.random());
-                   password += String.valueOf(upperCases.charAt(rand));
-                   break;
-           }
-       }
-       
-       System.out.println(password);
+         String letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+        String numbers = "0123456789";
+        
+        String password = letters+numbers;
+        Random r = new Random();
+        char[] passwordGenerated = new char[length];
+        
+        for(int i=0;i<length;i++)
+        {
+            passwordGenerated[i] = password.charAt(r.nextInt(password.length()));
+        }
+        System.out.println(passwordGenerated);
+  
     }
     
     public static void main(String[] args) {
